@@ -1,0 +1,54 @@
+{
+  "kind": "collectionType",
+  "collectionName": "courses",
+  "info": {
+    "singularName": "course",
+    "pluralName": "courses",
+    "displayName": "Course",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "imageUrl": {
+      "type": "string"
+    },
+    "courseType": {
+      "type": "enumeration",
+      "enum": [
+        "LIVE",
+        "STUDY",
+        "BOOK",
+        "LESSON"
+      ]
+    },
+    "nth": {
+      "type": "integer"
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "price": {
+      "type": "biginteger",
+      "required": true
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "READY",
+        "STARTED",
+        "ENDED"
+      ],
+      "required": true
+    },
+    "tags": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::tag.tag",
+      "inversedBy": "courses"
+    }
+  }
+}
